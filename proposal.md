@@ -1,7 +1,7 @@
 # Automating Zooplankton Classification Using Geometric and Environmental Features
 
 ## 1. Introduction
-- **Research Question**: Can a machine learning model be developed to accurately classify zooplankton species based on their geometric and environmental features?
+- **Research Question**: Make machine learning model to classify zooplankton species based on their images and features like geometric environmental.
 - **Significance**: Zooplankton are vital indicators of freshwater ecosystem health. Current manual classification is labor-intensive and prone to observer bias.
 
 ## 2. Data Description
