@@ -19,13 +19,16 @@
 
 ## 3. Methods and Tools
 - **Tools**:
-  - **Data Preprocessing**: `Pandas` library from Python for handling missing values and cleaning data.
-  - **Modeling**: TensorFlow or PyTorch for classification tasks.
-  - **Analysis**: `Pandas` for exploratory data analysis and visualization.
+  - **Data Preprocessing**: `Pandas` library for handling missing values and cleaning data.
+  - **Feature Extraction**: Rather than relying on raw pixel values, we’ll extract geometric and texture features from each cropped zooplankton image. This approach accounts for variations in plankton images due to rotation and different camera angles, making the model more robust to these changes.
+- **Methods**:
+  - **The following features will be used**:
+    - **Geometric Features**: Area, Perimeter, Aspect Ratio, Compactness, Symmetry, Transparency.
+    - **Texture Features**: Contrast, Homogeneity, Energy, Correlation.
+  - **Modeling**: Multinomial Naive Bayes will be used as a baseline classifier. Since extracted features are categorical or frequency, MNB is well suited for this dataset. We will preprocess features using Min Max Scaling to ensure all values are positive.
+  If MNB struggles, we can use CNN. Since there are imbalanced plankton species, MNB handles class prior by assigning probability based on frequency. 
 
 ## 4. Preliminary Analysis
-- **Summary Table**:
-  - A table summarizing species distributions and highlighting data imbalances (to be included).
 - **Visual Example**:
   - The same species can have different shapes due to variations in camera angle, lighting, and positioning.
   - Below is an example of 22 images of Bosmina_1 plankton, showing the morphological differences within a single species.
