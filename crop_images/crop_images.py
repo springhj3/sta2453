@@ -5,7 +5,7 @@ import os
 # Crop Images
 
 # Reload the CSV file
-csv_file_path = r'C:\Users\sprin\Downloads\SIMC_OverlapTiffsWithPP\SIMC_OverlapTiffsWithPP\SIMC.Overlap.csv\20190607_SIMC_208_2mm_rep2_AD_data.csv'
+csv_file_path = r'C:\Users\sprin\Downloads\SIMC_OverlapTiffsWithPP\SIMC_OverlapTiffsWithPP\SIMC.Overlap.csv\20180529_SIMC_200_2mm_rep2_redo_KG_data.csv'
 data = pd.read_csv(csv_file_path)#.sort_values(by='Class')
 
 # Dictionary to store loaded .tif images
@@ -16,7 +16,7 @@ data = data[data['Class'] == 'CountGT500']
 test_particles = data[['Class', 'Image.File', 'Image.X', 'Image.Y', 'Image.Width', 'Image.Height']].head(5)
 
 # Ensure the output directory exists
-output_dir = r"crop_images\CountGT500"
+output_dir = r"crop_images\big_particles\20180529_SIMC_200_2mm_rep2_redo_KG_data"
 os.makedirs(output_dir, exist_ok=True)  # Create directory if it doesn't exist
 
 # Loop through each row, load the corresponding tif file, and crop the image
@@ -44,6 +44,6 @@ for idx, particle in test_particles.iterrows():
     cropped_image = tif_images[tif_filename].crop(crop_box)
 
     # Save the cropped image
-    output_path = fr"crop_images\CountGT500\cropped_particle_{idx + 1}.png"
+    output_path = fr"{output_dir}_{idx + 1}.png"
     cropped_image.save(output_path)
     print(f"Cropped particle {idx + 1} from {tif_filename} saved as {output_path}")
